@@ -3,13 +3,7 @@ package com.test.feng.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.test.feng.web.entity.Cart;
 import com.test.feng.web.entity.Fruit;
@@ -42,6 +36,26 @@ public class CartController {
 		cartService.deleteFruit(detail_ID);
 		return "刪除成功";
 	}
+	//調整購物車數量
+	@PutMapping(value = "/incdec")
+	public String incdec(@RequestBody Cart cart){
+		cartService.incdec(cart);
+		return "執行修改數量...";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// 測試檢查是否有效
 	@PostMapping(value = "/testCheck")
 	public boolean checkfruit(@RequestBody Fruit fruit) {

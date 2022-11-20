@@ -14,11 +14,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "f_detail")
+@Table(name = "f_cart")
 public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer detail_ID;
+	private Integer o_ID;
 	private String f_Name;
 	private Integer f_Price;
 	private Integer f_Amount;
