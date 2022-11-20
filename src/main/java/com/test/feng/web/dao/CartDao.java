@@ -23,4 +23,5 @@ public interface CartDao extends JpaRepository<Cart, Integer> {
 	@Modifying
 	@Query(value = "update f_cart set f_Amount=f_Amount+(?1) where f_Name=?2",nativeQuery = true)
 	void  incdec(Integer f_Amount,String f_Name);
+
 }
