@@ -1,6 +1,5 @@
 package com.test.feng.web.controller;
 
-import com.test.feng.web.entity.Cart;
 import com.test.feng.web.entity.Order;
 import com.test.feng.web.entity.OrderList;
 import com.test.feng.web.service.OrderService;
@@ -24,7 +23,7 @@ public class OrderController {
     @PostMapping(value = "/addToOrder")
     public String addToOrder(@RequestBody Order order){
         orderService.addToOrder(order);
-        return "成功";
+        return "訂單新增成功";
     }
     //列出水果與總金額
     @PostMapping(value = "/getAllDetail")

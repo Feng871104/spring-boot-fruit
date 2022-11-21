@@ -1,16 +1,16 @@
 package com.test.feng.web.service;
 
 import com.test.feng.web.dao.OrderDao;
-import com.test.feng.web.entity.Cart;
 import com.test.feng.web.entity.Order;
 import com.test.feng.web.entity.OrderList;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
-
+@Slf4j
 @Service
 public class OrderService {
 
@@ -28,9 +28,13 @@ public class OrderService {
     }
     //Join購物車查詢
     public List<Map<String,Object>> getAllDetail(OrderList orderList) {
-       return dao.getAllList(orderList.getMem_ID());
+        log.info("訂單內容:");
+        for (Map<String,Object> m : dao.getAllList(orderList.getMem_ID())) {
+            log.info("商品名稱:"+m.get("f_Name") + ","+ "購買數量:" + m.get("f_Amount"));
+        }
+        log.info("總金額:"+dao.getAllList(orderList.getMem_ID()).get(0).get("o_Total"));
+        return dao.getAllList(orderList.getMem_ID());
     }
-
 
 
 }
