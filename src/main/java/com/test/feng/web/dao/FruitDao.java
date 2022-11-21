@@ -11,7 +11,10 @@ import com.test.feng.web.entity.Fruit;
 
 @Repository
 public interface FruitDao extends JpaRepository<Fruit, Integer>{
+	//檢查水果存在
 	@Query(value = "select * from f_info where f_Name = ?1", nativeQuery = true)
-	List<Fruit> checkName(String f_name);
-	
+	List<Fruit> checkName(String f_Name);
+
+
+
 }

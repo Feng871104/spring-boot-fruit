@@ -32,7 +32,7 @@ public class OrderService {
         for (Map<String,Object> m : dao.getAllList(orderList.getMem_ID())) {
             log.info("商品名稱:"+m.get("f_Name") + ","+ "購買數量:" + m.get("f_Amount"));
         }
-        log.info("總金額:"+dao.getAllList(orderList.getMem_ID()).get(0).get("o_Total"));
+        log.info("總金額:"+dao.getAllList(orderList.getMem_ID()).get(0).get("o_Total")+"元");
         return dao.getAllList(orderList.getMem_ID());
     }
 
