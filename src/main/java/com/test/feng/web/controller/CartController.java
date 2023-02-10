@@ -43,19 +43,6 @@ public class CartController {
 		return "執行修改數量...";
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	// 測試檢查是否有效
 	@PostMapping(value = "/testCheck")
 	public boolean checkfruit(@RequestBody Fruit fruit) {
