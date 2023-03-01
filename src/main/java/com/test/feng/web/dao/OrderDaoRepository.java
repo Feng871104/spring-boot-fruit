@@ -1,18 +1,15 @@
 package com.test.feng.web.dao;
 
-import com.test.feng.web.entity.Cart;
-import com.test.feng.web.entity.Order;
-import com.test.feng.web.entity.OrderList;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Map;
 
-@Repository
-public interface OrderDao extends JpaRepository<Order,Integer> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import com.test.feng.web.entity.Order;
+
+public interface OrderDaoRepository extends JpaRepository<Order,Integer> {
     //將購物車總金額寫入訂單
     @Modifying
     @Query(value = "insert into f_order(mem_ID,o_Total) value(?1,(select sum(f_price*f_Amount) from f_cart where mem_ID=?1 ))",nativeQuery = true)
